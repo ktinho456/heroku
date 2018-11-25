@@ -5,8 +5,43 @@
 
 
 
+
+
+
 <html>  
-<head>
+  <body>
+  <p id='server-time'></p>
+
+ <script src="/socket.io/socket.io.js"></script>
+<script>
+	
+	
+	
+	      var socket = io();
+      var el = document.getElementById('server-time');	
+	   socket.on('time', function(timeString) {
+        el.innerHTML = 'Server time: ' + timeString;
+      });
+	
+	
+
+</script>
+
+  
+  
+  </body>
+</html>
+
+
+
+
+
+<html> 
+	  <body>
+  <p id='server-time'></p>
+	
+	
+
 <style>
 #main {
         border:#333;
@@ -27,8 +62,8 @@
 
 
 </script>
-</head>
-<body onLoad="init();">
+
+
 <p id="nickname"></p>
 <canvas id="main" width="750" height="550" style="margin-top:10px; margin-left:10px;"></canvas
 
@@ -39,10 +74,10 @@ onload="initPage();"
 		>
 
       
-      <p id='server-time'></p>
+     
 
       
-   
-   </body>
+ 
       
+  </body>
 </html>
