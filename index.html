@@ -286,6 +286,14 @@ function init(){
       var socket = io();
       var el = document.getElementById('server-time');
 
+	
+	
+	
+	   socket.on('time', function(timeString) {
+        el.innerHTML = 'Server time: ' + timeString;
+      });
+	
+	
 $(document).ready(function(){
             // no clique do botão (coisa jquery)
                 //as coisas dentro desta cláusula acontecer somente quando
@@ -351,9 +359,7 @@ $(document).ready(function(){
 			);
 
 
-   socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
-      });
+
 			
 			socket.on('position',
 				function (data)
