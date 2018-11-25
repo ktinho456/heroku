@@ -17,6 +17,23 @@
 
 <script src="anima.js"></script>
 <script type="text/javascript">
+	
+	
+	
+	      var socket = io();
+      var el = document.getElementById('server-time');
+
+	
+	
+	
+	   socket.on('time', function(timeString) {
+        el.innerHTML = 'Server time: ' + timeString;
+      });
+	
+	
+	
+	
+	
 
 var clickSound = new Audio("aBird1.wav");
 var player = Array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -283,15 +300,7 @@ function init(){
 };
 	
 	
-      var socket = io();
-      var el = document.getElementById('server-time');
 
-	
-	
-	
-	   socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
-      });
 	
 	
 $(document).ready(function(){
