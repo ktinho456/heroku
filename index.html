@@ -27,11 +27,7 @@
 	
 	
 	
-	var socket = io();
-      var el = document.getElementById('server-time');
-      socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
-      });
+
 
 
 	
@@ -60,13 +56,7 @@
 </head>
 
 <p id="nickname"></p>
-	<canvas id="main" width="750" height="550" style="margin-top:10px; margin-left:10px;"></canvas
-
-
-
-onload="initPage();"
-		onunload="exitPage();"
-		>
+	
 
         <div id="l">level >> <span id="lvl"></span></div>
         <div id="p">pontos >> <span id="pts"></span></div>
