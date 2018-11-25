@@ -1,78 +1,19 @@
-<html>  
-<head>
-<style>
-#main {
-        border:#333;
-        border-width:2px;
-        border-style:solid;
-}
-
-
-</style>
-
- <script src="/socket.io/socket.io.js"></script>
-<script type="text/javascript">
-	
-	
-	
-	      var socket = io();
+<html>
+  <body>
+    <p id='server-time'></p>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
       var el = document.getElementById('server-time');
-
-	
-	
-	
-	   socket.on('time', function(timeString) {
+      socket.on('time', function(timeString) {
         el.innerHTML = 'Server time: ' + timeString;
       });
-	
-	
-	
-
-
-
-	
-	
-
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-</head>
-
-<p id="nickname"></p>
-	
-
-        <div id="l">level >> <span id="lvl"></span></div>
-        <div id="p">pontos >> <span id="pts"></span></div>
-
-        <div id="y">posicaox >> <span id="vy"></span></div>
-        <div id="y">posicaoy >> <span id="vx"></span></div>
-      
- 
- <input id ="t"type="text"/>
-<input type="boton" value="mostrar" onclick ="mostrarmensagem()"/;>
-      
-      <p id='server-time'></p>
-      <p id="log"></p>
-      <p id="data_recieved"></p>
-      
-   
-   </body>
-      
+    </script>
+  </body>
 </html>
+
+
+
+
+
+
