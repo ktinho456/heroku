@@ -8,47 +8,18 @@
 
 
 
-<html>  
-  <body>
-  <p id='server-time'></p>
-
- <script src="/socket.io/socket.io.js"></script>
-<script>
-	
-	
-	
-	      var socket = io();
-      var el = document.getElementById('server-time');	
-	   socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
-      });
-	
-	
-
-</script>
-
-  
-  
-  </body>
-</html>
 
 
 
 
 
 <html> 
-	  <body>
+<body>
   <p id='server-time'></p>
 	
 	
 
-<style>
-#main {
-        border:#333;
-        border-width:2px;
-        border-style:solid;
-}
-</style>
+
  <script src="/socket.io/socket.io.js"></script>
 <script>
 
