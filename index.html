@@ -1,21 +1,6 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html> 
 	
-	<head>
+<head>
 <style>
 #main {
         border:#333;
@@ -27,15 +12,10 @@
 </style>
 	</head>
 	
-	
-	
 <body>
   <p id='server-time'></p>
 	
-	
-
-
- <script src="/socket.io/socket.io.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
 <script>
 
 	      var socket = io();
@@ -45,11 +25,18 @@
       });
 
 
+	
+	
+	
 
+	
+	
+	
+	
 
 </script>
 
-
+<body onLoad="init();">
 <p id="nickname"></p>
 <canvas id="main" width="750" height="550" style="margin-top:10px; margin-left:10px;"></canvas
 
@@ -60,10 +47,5 @@ onload="initPage();"
 		>
 
       
-     
-
-      
- 
-      
-  </body>
+ </body>
 </html>
