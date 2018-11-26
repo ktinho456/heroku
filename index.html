@@ -15,9 +15,12 @@
  
  <script src="/socket.io/socket.io.js"></script>
 <script>
-
+      var socket = io();
+      var el = document.getElementById('server-time');
 	
-	
+	  socket.on('time', function(timeString) {
+        el.innerHTML = 'Server time: ' + timeString;
+      });
 
 	
 	
@@ -201,8 +204,7 @@ var mty3 = 35;
 
 ////////var socket = io.connect('http://localhost:8000');
 
-      var socket = io();
-      var el = document.getElementById('server-time');
+
 
 
 
@@ -686,9 +688,7 @@ function init(){
 
 
 
-      socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
-      });
+    
 
 
 
