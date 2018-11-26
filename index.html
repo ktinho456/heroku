@@ -10,10 +10,24 @@
 
 </style>
 </head>
-<p id='server-time'></p>
-<script type="text/javascript">
+	
+	
+ <p id='server-time'></p>
+ <script src="/socket.io/socket.io.js"></script>
+<script>
 
-//////var clickSound = new Audio("aBird1.wav");
+	
+	
+      var socket = io();
+      var el = document.getElementById('server-time');
+      socket.on('time', function(timeString) {
+        el.innerHTML = 'Server time: ' + timeString;
+      });
+	
+	
+	
+	
+
 var player = Array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -49,8 +63,94 @@ var player = Array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
 
 
+var map = Array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,2,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0]);
 
-var objectDict = Array("casa1.png","arvore.png", "a.png", "b.png" );
+
+
+
+
+
+
+
+
+var objectMap = Array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+
+
+
+
+
+
+var objectDict = Array("casa1.png","arvore.png", "a.png", "b.png");
 var tileDict = Array( "land11.png","tttt.png","swamp.png"  , "tt.png");
 var charDict = Array("p1.png" , "lu.png" , "blod2.png" , "mt222.png");
 var charImg = new Array();
@@ -103,10 +203,9 @@ var mtx3 = 10;
 var mty3 = 35;
 
 
-////var socket = io.connect('http://localhost:8000');
+////////var socket = io.connect('http://localhost:8000');
 
-      var socket = io();
-      var el = document.getElementById('server-time');
+
 
 
 
@@ -242,6 +341,313 @@ ctx.drawImage(charImg[3],currentFrame1,movey1,100,150,xpos,ypos -(charImg[3].hei
 			
 };
 
+
+
+
+
+imagedp = new Image()
+imagedp.src = 'distripont.png';
+
+imageinv = new Image()
+imageinv.src = 'inventario.png';
+
+imagepod = new Image()
+imagepod.src = 'poderes.png';
+
+
+function mouseClick(e)
+{
+//			image = new Image()
+//			image.src = 'avatar.png';
+var xpos = (newplayerX+newplayerY)*this.tileH/2 + mapX;
+var ypos = (newplayerX+newplayerY)*this.tileH/2+ mapY;
+
+var playerx1 = playerX;
+var playery1 = playerY;
+var playerxx = playerX+1;
+var playeryy = playerY+1;
+var playerr = playerX-1;
+var playerrr = playerY-1;
+
+player[playerx1][playery1] = 1;
+
+if(playerx1 !== playerxx && playery1 !== playeryy){
+delete player[playerxx][playeryy];
+delete player[playerr][playerrr];
+delete player[playerx1][playeryy];
+delete player[playerx1][playerrr];
+
+delete player[playerxx][playery1];
+delete player[playerr][playery1];
+delete player[playerxx][playerrr];
+delete player[playerr][playeryy];
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+	newX = playerX; // local copies
+	newY = playerY;
+		
+	if(xmouse > newX) newX++ //////&& mapX++;
+	if(ymouse > newY) newY++ ///////&& mapY++;
+	if(xmouse < newX) newX-- /////////&& mapX--;
+	if(ymouse < newY) newY-- ////////&& mapY--;
+	
+	
+	
+	
+	 			 if(mtx > newX)mtx --;
+				 if(mty > newY)mty --;
+				 if(mtx < newX)mtx ++; 
+				 if(mty < newY)mty ++;
+				 
+				 
+				 	
+	 			 if(mtx1 > newX)mtx1 --;
+				 if(mty1 > newY)mty1 --;
+				 if(mtx1 < newX)mtx1 ++; 
+				 if(mty1 < newY)mty1 ++;
+				 
+				 
+				 	
+	 			 if(mtx2 > newX)mtx2 --;
+				 if(mty2 > newY)mty2 --;
+				 if(mtx2 < newX)mtx2 ++; 
+				 if(mty2 < newY)mty2 ++;
+				 
+				 	
+	 			 if(mtx3 > newX)mtx3 --;
+				 if(mty3 > newY)mty3 --;
+				 if(mtx3 < newX)mtx3 ++; 
+				 if(mty3 < newY)mty3 ++;
+
+                                 if(mtx == newX)mtx = 10;//mata monstro
+      				 if(mty == newY)mty = 10;//mata monstro
+                                 
+                                 if(mtx == newX || mty == newY)monstro = morto;
+		
+
+
+		if(mtx > playerY && mty < playerX) movey1 = 290;
+		if(mty > playerY && mtx  < playerX) movey1 = 420;
+		if(mty > playerY && mtx  > playerX) movey1 = 560;
+		if(mty < playerY && mtx  < playerX) movey1 = 845;
+
+		
+		if(mtx  == playerX && mty > playerY) movey1 = 135;
+		if(mtx  == playerX && mty < playerY) movey1 = 703;
+		if(mtx  < playerX && mty == playerY) movey1 = 420;
+		if(mtx  > playerX && mty == playerY) movey1 = 5;
+	
+
+
+
+              
+		
+
+
+	
+	
+
+
+
+
+	
+	
+	
+	 	if(xmouse > newX && ymouse < newY) movey = 724;
+		if(ymouse > newY && xmouse < newX) movey = 475;
+		if(ymouse > newY && xmouse > newX) movey = 10;
+		if(ymouse < newY && xmouse < newX) movey = 240;
+
+		
+		if(xmouse == newX && ymouse > newY) movey = 1430;
+		if(xmouse == newX && ymouse < newY) movey = 1196;
+		if(xmouse < newX && ymouse == newY) movey = 966;
+		if(xmouse > newX && ymouse == newY) movey = 1687;
+		
+		if(xmouse == newX && ymouse == newY) movey = 1933;
+	////clickSound.play();
+	
+	////if(xmouse > 25)map = mapa; 	
+	
+	
+		
+	document.getElementById("vy").innerHTML = xmouse;
+        document.getElementById("vx").innerHTML = ymouse;
+
+
+if(monstro == morto)pontos +=5;
+  
+        document.getElementById("lvl").innerHTML = level;
+        document.getElementById("pts").innerHTML = pontos;
+
+	if(map[newX] && map[newX][newY] !== 2 && map[newX] && map[newX][newY] !== undefined)
+	
+	
+	 		
+	 
+    
+    	
+	{
+		playerX = newX;
+		playerY = newY;
+		
+
+		
+
+	}
+	if(newY !== ymouse  || newX !== xmouse){
+socket.emit('position', {playerX: playerX, playerY: playerY});
+
+
+///objectMap[xpos ][ypos] = 1;
+
+}
+
+ /// objectMap [playerX][playerY] = 1;
+  
+/////	delete objectMap [newX][newY] ;
+
+	// objectMap [xmouse][ymouse] = 2;
+	 
+	// objectMap [xmouse][ymouse] = 3;
+	 
+	// objectMap [xmouse][ymouse] = 4;
+	
+	
+	 ///if(ymouse < playerY) mapX -= 30;	
+	 ///if(xmouse < playerX) mapX += 30;	
+	 ///if(ymouse > playerY) mapX += 30;	
+	 ///if(xmouse > playerX) mapX -= 30;	
+	
+	
+		
+	
+
+////alert(valor);
+
+	
+
+	
+	 /////objectMap [ playerX ][ playerY ] = t ; 
+	
+ /////if(playerX == 0 && playerY == 9 ) 
+ 
+ ////if(playerX == 0 && playerY == 8 ) drawMap = true;
+///	map[xmouse][ymouse] = 2;
+	 		
+
+//// objectMap [xmouse][ymouse] = t;
+
+
+};
+
+
+
+
+
+
+
+       var x = 50,
+                y = 50,
+          frames = 900,
+                 
+                currentFrame = +0,
+                 
+               //// canvas = document.getElementById("myCanvas");
+                
+                image = new Image()
+                image.src = 'avatar.png';
+         
+        var draw = function(){
+             ///   ctx.clearRect(0, 0, x, y);
+             ////  ctx.drawImage(image,y*currentFrame,0, x, y, 0, 0, x, y);
+         
+         /////ctx.drawImage(image,y*currentFrame,movey,50,50,xpos,ypos,50,50);
+         
+                if (currentFrame == frames) {
+                  currentFrame = 0;
+                } else {
+                  currentFrame+=150;
+
+                }
+        }
+
+ setInterval(draw, 100);
+
+
+       var x1 = 50,
+                y1 = 50,
+          frames1 = 600,
+                 
+                currentFrame1 = +0,
+                 
+               
+                
+                image = new Image()
+                image.src = 'avatar.png';
+         
+        var draw1 = function(){
+            
+         
+                if (currentFrame == frames1) {
+                  currentFrame1 = 0;
+                } else {
+                  currentFrame1+=100;
+
+                }
+        }
+
+ setInterval(draw1, 100);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function playAudioOnKeyDown(e) {
+  if (e.keyCode == 65) {
+    clickSound.play();
+    ctx.drawImage( imagedp,0,0);
+  }
+
+if (e.keyCode == 83) {
+    clickSound.play();
+    ctx.drawImage( imageinv,0,0);
+  }
+
+
+if (e.keyCode == 68) {
+    clickSound.play();
+    ctx.drawImage( imagepod,0,0);
+  }
+
+
+};
+
+
+
+
 //------------------------------------------------------------------------------
 
 
@@ -262,7 +668,7 @@ t = valor;
 
 
 function init(){
-////    document.onkeydown = playAudioOnKeyDown; 
+//////    document.onkeydown = playAudioOnKeyDown; 
 
 /////document.onkeydown = checkKeycode;	
 	canvas = document.getElementById('main')
@@ -277,6 +683,7 @@ function init(){
 	canvas.addEventListener("mousedown", mouseClick, false);
 
 };
+
 
 
 
