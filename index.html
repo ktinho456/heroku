@@ -960,18 +960,18 @@ $(document).ready(function(){
 					var playerrr = data.playerY-1;
 
 
-					objectMap[playerx1][playery1] = 2;
+					player[playerx1][playery1] = 1;
 
 					   if(playerx1 !== playerxx && playery1 !== playeryy){
- 					  delete objectMap[playerxx][playeryy];
- 					  delete objectMap[playerr][playerrr];
- 					  delete objectMap[playerx1][playeryy];
- 					  delete objectMap[playerx1][playerrr];
+ 					  delete player[playerxx][playeryy];
+ 					  delete player[playerr][playerrr];
+ 					  delete player[playerx1][playeryy];
+ 					  delete player[playerx1][playerrr];
 
-					   delete objectMap[playerxx][playery1];
-					   delete objectMap[playerr][playery1];
-					   delete objectMap[playerxx][playerrr];
-					   delete objectMap[playerr][playeryy];
+					   delete player[playerxx][playery1];
+					   delete player[playerr][playery1];
+					   delete player[playerxx][playerrr];
+					   delete player[playerr][playeryy];
 
 
   }
