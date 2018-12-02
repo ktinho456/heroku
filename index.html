@@ -911,19 +911,13 @@ $(document).ready(function(){
 
 					$("p#data_recieved").append("<br />\r\n" + data.msgr + ': ' +output);
 
-					//document.getElementById("vy").innerHTML = data.playerX;
-					//document.getElementById("vx").innerHTML = data.playerY;
           
          
           
 					// nós registramos este evento para se divertir: D
-					//  $("p#log").html('got message: ' + data.msg + data.msgr + ': ' + data.playerX);
+					 $("p#log").html('got message: ' + data.msg + data.msgr + ': ' + data.playerX);
 
 
-
-					//newplayerX = data.playerX;
-					//newplayerY = data.playerY;
-					//document.getElementById("vy").innerHTML = newplayerX;
 
           
             
@@ -1009,16 +1003,23 @@ onload="initPage();"
         <div id="l">level >> <span id="lvl"></span></div>
         <div id="p">pontos >> <span id="pts"></span></div>
 
-        <div id="y">posicaox >> <span id="vy"></span></div>
-        <div id="y">posicaoy >> <span id="vx"></span></div>
-      
+     
+	
+	        <div id="y">mesnsagens do server >> <span id="vy"></span></div>
+        <div id="y">mesnsagens do server >> <span id="vx"></span></div>
+       <input type="text" id="msg"></input><button>Click me</button>
+      <p id="log"></p>
+      <p id="data_recieved"></p>
+	
+	
  
  <input id ="t"type="text"/>
 <input type="boton" value="mostrar" onclick ="mostrarmensagem()"/;>
       
       <p id='server-time'></p>
-      <p id="log"></p>
-     
+      <p id="log12"></p>
+	
+   
       
    
    </body>
