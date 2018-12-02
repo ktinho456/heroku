@@ -909,14 +909,14 @@ $(document).ready(function(){
 				{
 					
 
-					///$("p#data_recieved").append("<br />\r\n" + data.msgr + ': ' + data.message);
-                                        $("p#data_recieved").append("<br />\r\n" + data.msgr + ': ' + data.playerY);
+					$("p#data_recieved").append("<br />\r\n" + data.msgr + ': ' + data.message);
+                                       ///// $("p#data_recieved").append("<br />\r\n" + data.msgr + ': ' + data.playerY);
           
          
           
 					// nós registramos este evento para se divertir: D
-				     $("p#log").html('got message: ' + data.msg + data.msgr + ': ' + data.playerX);
-				     ///// $("p#log").html('got message: ' + data.message);
+				    
+				      $("p#log").html('got message: ' + data.message);
 					///// $("p#log").html('got message: ' + data.msg + data.msgr );
 
 
@@ -1011,8 +1011,7 @@ onload="initPage();"
       <p id="log"></p>
       <p id="data_recieved"></p>
 	
-	<input id ="t"type="text"/>
-<input type="boton" value="mostrar" onclick ="mostrarmensagem()"/;>
+
  
       
       <p id='server-time'></p>
