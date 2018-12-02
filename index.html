@@ -873,10 +873,10 @@ $(document).ready(function(){
             $("button").click(function(){
             
                // apenas registro algumas simples
-              // $("p#log").html('sent message: ' + $("input#msg").val());
+               $("p#log").html('sent message: ' + $("input#msg").val());
                
                // enviar mensagem para o servidor em inputbox
-               //socket.emit('chat', $("input#msg").val() );
+               socket.emit('chat', $("input#msg").val() );
                
                 // O servidor receberá a mensagem,
                 // Então talvez fazer algum processamento, então ele irá
@@ -886,10 +886,10 @@ $(document).ready(function(){
                 // Outros navegadores de escuta para o servidor irá
                 // Receber a mensagem emitida. Desta forma, pretendemos
                 // Necessário imprimir manualmente esta msg para o remetente.
-              // $("p#data_recieved").append("<br />\r\n" + name + ': ' + $("input#msg").val());
+               $("p#data_recieved").append("<br />\r\n" + name + ': ' + $("input#msg").val());
                
                // então esvaziar o texto na caixa de entrada.
-              // $("input#msg").val('');
+               $("input#msg").val('');
             });
             
             // pedir o nome do usuário, perguntar de novo se nenhum nome.
