@@ -910,15 +910,15 @@ $(document).ready(function(){
 				{
 					
 
-					$("p#data_recieved").append("<br />\r\n" + data.msg  + ': ' + data.message);
+					/////$("p#data_recieved").append("<br />\r\n" + data.msg  + ': ' + data.message);
                                        ///// $("p#data_recieved").append("<br />\r\n" + data.msgr + ': ' + data.playerY);
           
          
           
 					// nós registramos este evento para se divertir: D
 				    
-				    /////  $("p#log").html('got message: ' + data.message);
-					///// $("p#log").html('got message: ' + data.msg + data.message );
+				      $("p#data_recieved").html('got message: ' + data.message);
+					//// $("p#log").html('got message: ' + data.msg + data.message );
 
 
 
@@ -940,7 +940,7 @@ $(document).ready(function(){
 					console.log(data)
 
                                        //// $("p#data_recieved").append("<br />\r\n" + data.payerz + ': ' +output);
-				       $("p#data_recieved").append("<br />\r\n [positions] {" + data.payerz + ": playerX = " + data.playerX + ", playerY = " + data.playerY + "}");
+				     /////  $("p#data_recieved").append("<br />\r\n [positions] {" + data.payerz + ": playerX = " + data.playerX + ", playerY = " + data.playerY + "}");
 					document.getElementById("vy").innerHTML = playerX;
 					document.getElementById("vx").innerHTML = playerY;
 
@@ -989,7 +989,7 @@ $(document).ready(function(){
           return false;
         });
         socket.on('chat message', function(msg){
-          $('#messages').append($('<li>').text(msg));
+          $('p#data_recieved').append($('<li>').text(msg));
 		/////$('p#data_recieved').append($('<li>').text(msg));
 		
 		////$("p#data_recieved").append("<br />\r\n" + data.message + ': ' + msg);
@@ -1032,7 +1032,7 @@ onload="initPage();"
 
 	
    <p id="data_recieved"></p>
-       <ul id="messages"></ul>
+   
        <form action="">
       <input id="m" autocomplete="off" /><button>enviar/Send</button>
 </form>
