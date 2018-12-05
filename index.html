@@ -916,7 +916,7 @@ $(document).ready(function(){
           
 					// nós registramos este evento para se divertir: D
 				    
-				      $("p#log").html('got message: ' + data.message);
+				    /////  $("p#log").html('got message: ' + data.message);
 					///// $("p#log").html('got message: ' + data.msg + data.message );
 
 
@@ -988,10 +988,10 @@ $(document).ready(function(){
           return false;
         });
         socket.on('chat message', function(msg){
-        ////  $('#messages').append($('<li>').text(msg));
+          $('#messages').append($('<li>').text(msg));
 		/////$('p#data_recieved').append($('<li>').text(msg));
 		
-		$("p#data_recieved").append("<br />\r\n" + data.message + ': ' + msg);
+		////$("p#data_recieved").append("<br />\r\n" + data.message + ': ' + msg);
 		
        ///   window.scrollTo(0, document.body.scrollHeight);
         });
