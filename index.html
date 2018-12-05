@@ -679,7 +679,7 @@ if(monstro == morto)pontos +=5;
 	{
 		playerX = newX;
 		playerY = newY;
-		movey = 500;
+		///movey = 500;
 		
 
 		
@@ -939,7 +939,7 @@ $(document).ready(function(){
 				{
 					console.log(data)
 
-                                        $("p#data_recieved").append("<br />\r\n" + data.payerz + ': ' +output);
+                                       //// $("p#data_recieved").append("<br />\r\n" + data.payerz + ': ' +output);
 				       $("p#data_recieved").append("<br />\r\n [positions] {" + data.payerz + ": playerX = " + data.playerX + ", playerY = " + data.playerY + "}");
 					document.getElementById("vy").innerHTML = playerX;
 					document.getElementById("vx").innerHTML = playerY;
