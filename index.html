@@ -686,7 +686,7 @@ if(monstro == morto)pontos +=5;
 
 	}
 	if(newY !== ymouse  || newX !== xmouse){
-socket.emit('position', {playerX: movey, playerY: movey, playerz: movey});
+socket.emit('position', {playerX: playerX, playerY: playerY, playerz: movey});
 
 
 ///objectMap[xpos ][ypos] = 1;
