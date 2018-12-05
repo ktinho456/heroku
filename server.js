@@ -82,7 +82,7 @@ io.sockets.on('connection',
             player.z = data.z;
 
 
-            socket.emit('position', {pid : player.id, playerX : player.x, playerY : player.y});
+            socket.emit('position', {pid : player.id, playerX : player.x, playerY : player.y, payerz : player.z});
             socket.broadcast.emit('position', {pid : player.id, playerX : player.x, playerY : player.y, payerz : player.z});
         }); 
 
