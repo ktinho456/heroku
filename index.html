@@ -988,12 +988,12 @@ $(document).ready(function(){
           return false;
         });
         socket.on('chat message', function(msg){
-          $('#messages').append($('<li>').text(msg));
+        ////  $('#messages').append($('<li>').text(msg));
 		/////$('p#data_recieved').append($('<li>').text(msg));
 		
-		/////$("p#data_recieved").append("<br />\r\n" + data.message + ': ' + msg);
+		$("p#data_recieved").append("<br />\r\n" + data.message + ': ' + msg);
 		
-          window.scrollTo(0, document.body.scrollHeight);
+       ///   window.scrollTo(0, document.body.scrollHeight);
         });
       });
 
@@ -1030,7 +1030,7 @@ onload="initPage();"
       
 
 	
-   
+   <p id="data_recieved"></p>
        <ul id="messages"></ul>
        <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
