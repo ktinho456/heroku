@@ -944,8 +944,8 @@ $(document).ready(function(){
           
 					// nós registramos este evento para se divertir: D
 				    
-				      $("p#data_recieved").html('got message: ' + data.message);
-					//// $("p#log").html('got message: ' + data.msg + data.message );
+				      ///$("p#data_recieved").html('got message: ' + data.message);
+					 $("p#data_recieved").html('got message: ' + data.msg + data.message );
 
 
 
@@ -1032,6 +1032,18 @@ $(document).ready(function(){
 
 
 </script>
+	
+	
+	 <center>
+ 
+        <div id="conteiner">
+            <p id="messages"></p>
+            <form action="">
+                <input id="m" autocomplete="off" maxlength="400" /><button>Enviar</button>
+            </form>
+        </div>
+		 
+</center>
 
 <body onLoad="init();">
 <p id="nickname"></p>
@@ -1042,15 +1054,7 @@ $(document).ready(function(){
 		>
 	
 	
- <center>
- 
-        <div id="conteiner">
-            <p id="messages"></p>
-            <form action="">
-                <input id="m" autocomplete="off" maxlength="400" /><button>Enviar</button>
-            </form>
-        </div>
-</center>
+
 
 
 	
