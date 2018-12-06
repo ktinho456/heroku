@@ -209,13 +209,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
 	
 	
 ////------------------------------------------------------------------------------------------------------------	
-	
-      var socket = io();
-      var el = document.getElementById('server-time');
-	
-	  socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
-      });
+
 
 	
 	
@@ -1004,24 +998,6 @@ $(document).ready(function(){
 			);
 
 
-
-
-      $(function () {
-        var socket = io();
-        $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-        });
-        socket.on('chat message', function(msg){
-          $('p#messages').append($('<li>').text(msg));
-		/////$('p#data_recieved').append($('<li>').text(msg));
-		
-		////$("p#data_recieved").append("<br />\r\n" + data.message + ': ' + msg);
-		
-          window.scrollTo(0, document.body.scrollHeight);
-        });
-      });
 
 
 
