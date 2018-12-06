@@ -7,8 +7,28 @@
         border-style:solid;
 }
 
+	
+	
+            #conteiner {width: 39%;height: 500px;background-color: antiquewhite; float: right; margin-right: 10%}
+            #messages 
+            {
+                margin-top: 10px; 
+                margin-left: 0%; 
+                background-color: aliceblue; 
+                width: 95%; 
+                height: 85%;
+                text-align: left;
+                text-indent: 2%;
+                overflow: auto;
+            }
+            #m {width: 78%; margin-top: 0.3%}
+           
+            form button { width: 12%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+            form input { border: solid 1px; padding: 10px; width: 90%; margin-right: .5%; }	
 
 </style>
+	
+	
 </head>
 	
 	 <p id='server-time'></p>
@@ -996,12 +1016,12 @@ $(document).ready(function(){
           return false;
         });
         socket.on('chat message', function(msg){
-          $('p#data_recieved').append($('<li>').text(msg));
+          $('p#messages').append($('<li>').text(msg));
 		/////$('p#data_recieved').append($('<li>').text(msg));
 		
 		////$("p#data_recieved").append("<br />\r\n" + data.message + ': ' + msg);
 		
-       ///   window.scrollTo(0, document.body.scrollHeight);
+          window.scrollTo(0, document.body.scrollHeight);
         });
       });
 
@@ -1032,17 +1052,27 @@ onload="initPage();"
         <div id="y">mesnsagens do server >> <span id="vx"></span></div>
     
     
-	
-
- 
-      
 
 	
    <p id="data_recieved"></p>
    
-       <form action="">
-      <input id="m" autocomplete="off" /><button>enviar/Send</button>
-</form>
+
+	
+	
+	
+	
+ <center>
+ 
+        <div id="conteiner">
+            <p id="messages"></p>
+            <form action="">
+                <input id="m" autocomplete="off" maxlength="400" /><button>Enviar</button>
+            </form>
+        </div>
+</center>
+	
+	
+	
    </body>
       
 </html>
