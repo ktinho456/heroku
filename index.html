@@ -937,7 +937,7 @@ $(document).ready(function(){
 					// nós registramos este evento para se divertir: D
 				    
 				      ///$("p#data_recieved").html('got message: ' + data.message);
-					 $("p#messages").html('got message: ' + data.msg + data.message );
+					//// $("p#messages").html('got message: ' + data.msg + data.message );
 
 
 
@@ -959,7 +959,7 @@ $(document).ready(function(){
 					console.log(data)
 
                                        //// $("p#data_recieved").append("<br />\r\n" + data.payerz + ': ' +output);
-				       ////$("p#data_recieved").append("<br />\r\n [positions] {" + data.playerZ + ": playerX = " + data.playerX + ", playerY = " + data.playerY + "}");
+				       $("p#data_recieved").append("<br />\r\n [positions] {" + data.playerZ + ": playerX = " + data.playerX + ", playerY = " + data.playerY + "}");
 					document.getElementById("vy").innerHTML = playerX;
 					document.getElementById("vx").innerHTML = playerY;
 
@@ -1000,6 +1000,24 @@ $(document).ready(function(){
 
 
 
+
+
+      $(function () {
+        var socket = io();
+        $('form').submit(function(){
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+        socket.on('chat message', function(msg){
+          $('p#messages').append($('<li>').text(msg));
+		/////$('p#data_recieved').append($('<li>').text(msg));
+		
+		////$("p#data_recieved").append("<br />\r\n" + data.message + ': ' + msg);
+		
+          window.scrollTo(0, document.body.scrollHeight);
+        });
+      });
 
 
 
@@ -1049,7 +1067,7 @@ $(document).ready(function(){
 	
   
    
-
+<p id="data_recieved"></p>
 	
 	
 	
