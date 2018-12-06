@@ -83,11 +83,11 @@ io.sockets.on('connection',
         {
             player.x = data.playerX;
             player.y = data.playerY;
-            player.z = data.z;
+            player.z = data.playerZ;
 
 
-            socket.emit('position', {pid : player.id, playerX : player.x, playerY : player.y, payerz : player.z});
-            socket.broadcast.emit('position', {pid : player.id, playerX : player.x, playerY : player.y, payerz : player.z});
+            socket.emit('position', {pid : player.id, playerX : player.x, playerY : player.y, playerZ : player.z});
+            socket.broadcast.emit('position', {pid : player.id, playerX : player.x, playerY : player.y, playerZ : player.z});
         }); 
 
     socket.on('register',
